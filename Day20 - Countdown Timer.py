@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.10
 
+from datetime import timedelta
 import time
 
 
@@ -10,8 +11,7 @@ def countdown(time_in_seconds: int) -> None:
         time_in_seconds (int): time to start the countdown(sec)
     """
     while time_in_seconds != 0:
-        mins, secs = divmod(time_in_seconds, 60)
-        time_remaining = "{:02d}:{:02d}".format(mins, secs)
+        time_remaining = timedelta(seconds=time_in_seconds)
         print(chr(10140), " ", end="")
         print(time_remaining, end="\r")
         time.sleep(1)
